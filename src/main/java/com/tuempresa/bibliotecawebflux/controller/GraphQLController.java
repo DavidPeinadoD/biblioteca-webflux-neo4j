@@ -7,6 +7,7 @@ import com.tuempresa.bibliotecawebflux.service.AutorService;
 import com.tuempresa.bibliotecawebflux.service.GeneroService;
 import com.tuempresa.bibliotecawebflux.service.LibroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -26,17 +27,19 @@ public class GraphQLController {
     private GeneroService generoService;
 
     // Consulta GraphQL para buscar libros por título, autor o categoría
+    @Bean
     @RequestMapping("/libros")
     public Flux<Libro> mostrarLibros() {
         return libroService.getAllLibros();
     }
-
+    @Bean
     @RequestMapping("/libro/{id}")
     public Mono<Libro> mostrarLibroPorId(Long id) {
         return libroService.getLibroById(id);
     }
 
     // Mutación GraphQL para agregar un libro
+    @Bean
     @RequestMapping("/agregarLibro")
     public Mono<Libro> agregarLibro(Long id, String titulo, String autor, String categoria) {
         // Lógica para agregar un libro, puedes incluir validaciones y manejo de errores
@@ -45,6 +48,7 @@ public class GraphQLController {
     }
 
     // Mutación GraphQL para editar un libro
+    @Bean
     @RequestMapping("/editarLibro")
     public Mono<Libro> editarLibro(Long libroId, Libro libro) {
         // Lógica para editar un libro, puedes incluir validaciones y manejo de errores
@@ -52,6 +56,7 @@ public class GraphQLController {
     }
 
     // Mutación GraphQL para eliminar un libro
+    @Bean
     @RequestMapping("/eliminarLibro")
     public Mono<Void> eliminarLibro(Long id) {
         // Lógica para eliminar un libro, puedes incluir validaciones y manejo de errores
@@ -59,6 +64,7 @@ public class GraphQLController {
     }
 
     // Mutación GraphQL para agregar un autor
+    @Bean
     @RequestMapping("/agregarAutor")
     public Mono<Autor> agregarAutor(Long autorId, String nombre, String apellidos) {
         // Lógica para agregar un autor, puedes incluir validaciones y manejo de errores
@@ -67,6 +73,7 @@ public class GraphQLController {
     }
 
     // Mutación GraphQL para editar un autor
+    @Bean
     @RequestMapping("/editarAutor")
     public Mono<Autor> editarAutor(Long autorId, Autor autor) {
         // Lógica para editar un autor, puedes incluir validaciones y manejo de errores
@@ -74,6 +81,7 @@ public class GraphQLController {
     }
 
     // Mutación GraphQL para eliminar un autor
+    @Bean
     @RequestMapping("/eliminarAutor")
     public Mono<Void> eliminarAutor(Long id) {
         // Lógica para eliminar un autor, puedes incluir validaciones y manejo de errores
@@ -81,6 +89,7 @@ public class GraphQLController {
     }
 
     // Mutación GraphQL para agregar una categoría
+    @Bean
     @RequestMapping("/agregarGenero")
     public Mono<Genero> agregarGenero() {
         // Lógica para agregar una categoría, puedes incluir validaciones y manejo de errores
@@ -89,6 +98,7 @@ public class GraphQLController {
     }
 
     // Mutación GraphQL para eliminar una categoría
+    @Bean
     @RequestMapping("/eliminarCategoria")
     public Mono<Void> eliminarCategoria(Long id, Genero genero) {
         // Lógica para eliminar una categoría, puedes incluir validaciones y manejo de errores

@@ -2,6 +2,9 @@ package com.tuempresa.bibliotecawebflux.models;
 
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
+
+import java.util.Set;
 
 @Node
 public class Libro {
@@ -15,6 +18,8 @@ public class Libro {
     private Long numDisponible;
     private Long numTotal;
 
+    @Relationship(type = "ESCRITO_POR", direction = Relationship.Direction.INCOMING)
+    private Set<Autor> autores;
     public Long getId() {
         return id;
     }
