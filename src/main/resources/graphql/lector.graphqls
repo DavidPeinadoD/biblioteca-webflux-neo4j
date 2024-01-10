@@ -1,0 +1,16 @@
+type Lector {
+    id: ID!
+    nombre: String!
+    apellidos: String!
+}
+
+type Query {
+    obtenerTodosLectores: [Lector]!
+    obtenerLectorPorId(id: ID!): Lector
+}
+
+type Mutation {
+    agregarLector(nombre: String!, apellidos: String!): Lector!
+    editarLector(id: ID!, nombre: String!, apellidos: String!): Lector!
+    eliminarLector(id: ID!): Lector
+}

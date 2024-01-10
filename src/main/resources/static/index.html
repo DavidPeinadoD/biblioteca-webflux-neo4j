@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca en Línea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Biblioteca en Línea</h1>
+
+<!-- Formulario de búsqueda de libros -->
+<form id="searchForm">
+    <label for="searchTitle">Título:</label>
+    <input type="text" id="searchTitle" name="searchTitle">
+
+    <label for="searchAuthor">Autor:</label>
+    <input type="text" id="searchAuthor" name="searchAuthor">
+
+    <label for="searchCategory">Categoría:</label>
+    <input type="text" id="searchCategory" name="searchCategory">
+
+    <button type="button" onclick="searchBooks()">Buscar Libros</button>
+</form>
+
+<!-- Resultados de la búsqueda -->
+<div id="searchResults"></div>
+
+<!-- Formulario para agregar un libro (para administradores) -->
+<form id="addBookForm">
+    <label for="addTitle">Título:</label>
+    <input type="text" id="addTitle" name="addTitle">
+
+    <label for="addAuthor">Autor:</label>
+    <input type="text" id="addAuthor" name="addAuthor">
+
+    <label for="addCategory">Categoría:</label>
+    <input type="text" id="addCategory" name="addCategory">
+
+    <button type="button" onclick="addBook()">Agregar Libro</button>
+</form>
+
+<!-- Mensajes de feedback -->
+<div id="feedback"></div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+type Libro {
+    id: ID!
+    titulo: String!
+    isbn: String!
+    autor: Autor!
+    disponibilidad: Boolean!
+    private: String!
+    numDisponibilidad: Int!
+    numTotal: Int!
+}
+
+type Query {
+    obtenerTodosLibros: [Libro]!
+    obtenerLibroPorId(id: ID!): Libro
+}
+
+type Mutation {
+    agregarLibro(titulo: String!, isbn: String!, autorId: ID!, disponibilidad: Boolean!, private: String!, numDisponibilidad: Int!, numTotal: Int!): Libro!
+    editarLibro(id: ID!, titulo: String, isbn: String, autorId: ID, disponibilidad: Boolean, private: String, numDisponibilidad: Int, numTotal: Int): Libro!
+    eliminarLibro(id: ID!): Libro
+}

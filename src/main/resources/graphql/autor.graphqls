@@ -1,0 +1,16 @@
+type Autor {
+    id: ID!
+    nombre: String!
+    apellidos: String!
+}
+
+type Query {
+    obtenerTodosAutores: [Autor]!
+    obtenerAutorPorId(id: ID!): Autor
+}
+
+type Mutation {
+    agregarAutor(nombre: String!, apellidos: String!): Autor!
+    editarAutor(id: ID!, nombre: String!, apellidos: String!): Autor!
+    eliminarAutor(id: ID!): Autor
+}

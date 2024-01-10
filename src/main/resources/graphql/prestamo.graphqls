@@ -1,0 +1,17 @@
+type Prestamo {
+    id: ID!
+    nombre: String!
+    fechaInicio: String!
+    fechaDevolucion: String!
+}
+
+type Query {
+    obtenerTodosPrestamos: [Prestamo]!
+    obtenerPrestamoPorId(id: ID!): Prestamo
+}
+
+type Mutation {
+    agregarPrestamo(nombre: String!, fechaInicio: String!, fechaDevolucion: String!): Prestamo!
+    editarPrestamo(id: ID!, nombre: String, fechaInicio: String, fechaDevolucion: String): Prestamo!
+    eliminarPrestamo(id: ID!): Prestamo
+}

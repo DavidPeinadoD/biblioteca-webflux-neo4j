@@ -1,0 +1,15 @@
+type Genero {
+    id: ID!
+    nombre: String!
+}
+
+type Query {
+    obtenerTodosGeneros: [Genero]!
+    obtenerGeneroPorId(id: ID!): Genero
+}
+
+type Mutation {
+    agregarGenero(nombre: String!): Genero!
+    editarGenero(id: ID!, nombre: String!): Genero!
+    eliminarGenero(id: ID!): Genero
+}
